@@ -1,0 +1,12 @@
+# Local development dependencies (macOS without CUDA)
+# For code editing, testing interfaces locally
+
+gradio>=4.0.0
+pyyaml
+numpy
+pillow
+opencv-python
+soundfile
+librosa
+matplotlib
+tqdm

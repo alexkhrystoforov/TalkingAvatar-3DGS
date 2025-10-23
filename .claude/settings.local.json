@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p data/{raw,processed/{frames,masks,colmap},models/avatars} src/{preprocessing,gaussian_avatar,audio,animation,rendering,interface} scripts notebooks tests models/{tts,gfpgan,wav2vec} outputs/{avatars,videos,demos})"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
