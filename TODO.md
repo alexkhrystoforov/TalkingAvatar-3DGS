@@ -260,6 +260,114 @@ You're **setting up infrastructure** today. Training comes Day 2-4.
 
 ---
 
+---
+
+## 📅 DAY 2 PLAN - Testing & Web Interface
+
+### ✅ COMPLETED SO FAR (Day 1 Extended):
+- [x] Baseline Wav2Lip script created (using edge-tts)
+- [x] Training video recorded (iPhone, converted to MP4)
+- [x] Voice reference recorded (converted to WAV)
+- [x] Files uploaded to RunPod (`/workspace/TalkingAvatar-3DGS/data/raw/`)
+- [x] Wav2Lip checkpoint downloaded (wav2lip_gan.pth, ~350MB)
+- [x] All dependencies installed on RunPod
+- [x] Ready to test (waiting for GPU availability)
+
+### 🔄 READY TO RUN (When GPU available):
+```bash
+# Everything is set up, just need to run:
+cd /workspace/TalkingAvatar-3DGS
+python scripts/baseline_wav2lip.py \
+  --video data/raw/training_video.mp4 \
+  --audio data/raw/voice_reference.wav \
+  --output outputs/videos/my_first_demo.mp4
+```
+
+### Morning Session (RunPod - GPU needed)
+- [ ] **Get RunPod with GPU** (restart pod or create new one)
+- [x] Pull latest code from GitHub
+- [x] Upload training data (video + audio)
+- [x] Download Wav2Lip checkpoint
+- [ ] Install scipy for Wav2Lip (pip install scipy)
+- [ ] Test baseline Wav2Lip script
+- [ ] Evaluate lip-sync quality
+- [ ] Generate 2-3 demo videos with different text
+
+### Afternoon Session (Can work LOCAL or RunPod)
+- [ ] **Build Gradio Web Interface** 🌐
+  - Text input for script
+  - Video upload widget
+  - Voice selection dropdown
+  - Progress indicator
+  - Video preview and download
+  - Deploy on RunPod (accessible via browser)
+
+- [ ] **Interface Features:**
+  - Simple mode: Text → Video (one click)
+  - Advanced mode: Voice selection, enhancement options
+  - Side-by-side comparison (future: Wav2Lip vs 3DGS)
+
+- [ ] Test web interface
+- [ ] Create demo scenarios for interview
+- [ ] PAUSE RunPod to save costs
+
+### Web Interface Benefits for Interview:
+- ✅ Shows full-stack thinking (not just ML)
+- ✅ Easy to demonstrate live
+- ✅ Professional presentation
+- ✅ Can let interviewer try it themselves
+- ✅ Works from any browser (no local setup needed)
+
+---
+
+## 🎯 IMMEDIATE NEXT STEPS (When GPU Available)
+
+### Quick Win Path (2-3 hours):
+1. **Restart RunPod** - Try different times/GPU types for availability
+2. **Install scipy** - `pip install scipy` (1 min)
+3. **Run baseline demo** - Generate first video (5 min)
+4. **Download and watch** - See yourself talking! (2 min)
+5. **Generate 3-5 demos** - Different texts for variety (15 min)
+6. **Build Gradio interface** - Web UI for easy demos (1-2 hours)
+
+### What You Can Do NOW (Without GPU - LOCAL):
+1. **Commit progress to GitHub** - Save all today's work
+2. **Create demo script ideas** - Write interesting texts to test
+3. **Plan Gradio interface** - Sketch out UI design
+4. **Review CLAUDE.md** - Understand dual-pipeline strategy
+5. **Prepare for interview** - Think about talking points
+
+### Potential Issues to Watch:
+- ⚠️ **edge-tts API issues** - Have backup: use your voice_reference.wav directly
+- ⚠️ **GPU availability** - Try different times, different GPU types
+- ⚠️ **Wav2Lip dependencies** - May need: scipy, opencv-python, librosa
+
+---
+
+## 📊 Progress Summary
+
+### Day 1 Achievements: 🎉
+- ✅ RunPod environment set up (PyTorch 2.9.0, CUDA 12.8)
+- ✅ Baseline libraries installed (Wav2Lip, GFPGAN, edge-tts)
+- ✅ Dual-pipeline strategy defined (Wav2Lip + 3DGS)
+- ✅ Training data recorded and uploaded
+- ✅ Demo script ready to run
+- ✅ All files in persistent storage
+
+### Blockers Resolved:
+- ✅ 3DGS compilation issues → Documented, will address later
+- ✅ Python 3.12 compatibility → Using edge-tts instead of Coqui TTS
+- ✅ CUDA version mismatch → Reinstalled PyTorch with correct version
+- ✅ Data preparation → Videos recorded, converted, uploaded
+
+### Current Blocker:
+- ⏳ GPU availability → Will retry when available
+
+### Estimated Time to First Demo:
+- **5-10 minutes** once GPU is available! Everything else is ready.
+
+---
+
 ## ✅ Done for Today!
 
 Great job setting up the project structure! Tomorrow we bring it to life on the GPU.
