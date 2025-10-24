@@ -13,10 +13,9 @@ echo "🐍 Installing Python dependencies..."
 pip install --upgrade pip
 
 # Core dependencies
-pip install torch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 --index-url https://download.pytorch.org/whl/cu118
-
+ pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cu118
 # 3D and rendering
-pip install pytorch3d
+# pip install pytorch3d
 pip install ninja  # Required for building extensions
 pip install plyfile
 
