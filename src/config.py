@@ -59,13 +59,15 @@ class AudioConfig:
     hop_length: int = 512
     n_mels: int = 80
 
-    # TTS settings
-    tts_model: str = "tts_models/en/ljspeech/tacotron2-DDC"
-    tts_vocoder: str = "vocoder_models/en/ljspeech/hifigan_v2"
+    # TTS settings (using edge-tts for Python 3.12 compatibility)
+    tts_engine: str = "edge-tts"  # Using Microsoft Edge TTS (Python 3.12 compatible)
+    tts_voice: str = "en-US-AriaNeural"  # Default voice
 
-    # Voice cloning
-    use_voice_clone: bool = True
-    voice_clone_model: str = "tts_models/multilingual/multi-dataset/xtts_v2"
+    # Alternative voices for edge-tts:
+    # en-US-AriaNeural (female, friendly)
+    # en-US-GuyNeural (male, professional)
+    # en-GB-SoniaNeural (British female)
+    # See full list: edge-tts --list-voices
 
 @dataclass
 class RenderingConfig:

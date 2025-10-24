@@ -1,0 +1,66 @@
+# TalkingAvatar-3DGS Requirements
+# Python 3.10+ recommended
+
+# Core Deep Learning
+torch>=2.0.0
+torchvision>=0.15.0
+torchaudio>=2.0.0
+numpy>=1.24.0
+scipy>=1.10.0
+
+# 3D Processing
+pytorch3d
+trimesh>=3.21.0
+smplx>=0.1.28
+chumpy>=0.70
+
+# Computer Vision
+opencv-python>=4.8.0
+opencv-contrib-python>=4.8.0
+pillow>=10.0.0
+scikit-image>=0.21.0
+imageio>=2.31.0
+imageio-ffmpeg>=0.4.9
+
+# Audio Processing
+librosa>=0.10.0
+soundfile>=0.12.0
+pydub>=0.25.1
+resampy>=0.4.2
+
+# Face Processing & Enhancement
+face-alignment>=1.3.5
+facexlib>=0.3.0
+gfpgan>=1.3.8
+realesrgan>=0.3.0
+
+# Utilities
+tqdm>=4.65.0
+pyyaml>=6.0
+omegaconf>=2.3.0
+hydra-core>=1.3.0
+einops>=0.6.1
+kornia>=0.7.0
+
+# Web Interface
+gradio>=3.50.0
+fastapi>=0.100.0
+uvicorn>=0.23.0
+
+# Development & Testing
+pytest>=7.4.0
+black>=23.7.0
+flake8>=6.1.0
+ipython>=8.14.0
+jupyter>=1.0.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Video/Audio Processing
+ffmpeg-python>=0.2.0
+
+# Face Tracking & Landmarks
+mediapipe>=0.10.3
+
+# Optional but recommended
+ninja>=1.11.0

@@ -25,32 +25,30 @@ sys.path.insert(0, str(PROJECT_ROOT))
 from src.config import OUTPUT_DIR, EXTERNAL_DIR, VIDEOS_DIR
 
 
-def generate_audio_from_text(text: str, output_path: Path, voice_reference: Path = None):
-    """Generate audio from text using TTS"""
+def generate_audio_from_text(text: str, output_path: Path, voice: str = "en-US-AriaNeural"):
+    """Generate audio from text using edge-tts (Python 3.12 compatible)"""
     try:
-        from TTS.api import TTS
-
         print(f"🗣️  Generating audio from text: '{text[:50]}...'")
+        print(f"   Using voice: {voice}")
 
-        if voice_reference and voice_reference.exists():
-            # Use voice cloning
-            print(f"Using voice reference: {voice_reference}")
-            tts = TTS("tts_models/multilingual/multi-dataset/xtts_v2", gpu=True)
-            tts.tts_to_file(
-                text=text,
-                file_path=str(output_path),
-                speaker_wav=str(voice_reference),
-                language="en"
-            )
-        else:
-            # Use default TTS
-            print("Using default TTS voice")
-            tts = TTS("tts_models/en/ljspeech/tacotron2-DDC", gpu=True)
-            tts.tts_to_file(text=text, file_path=str(output_path))
+        # Use edge-tts (Microsoft Edge TTS, works with Python 3.12)
+        cmd = [
+            "edge-tts",
+            "--text", text,
+            "--voice", voice,
+            "--write-media", str(output_path)
+        ]
 
+        result = subprocess.run(cmd, capture_output=True, text=True, check=True)
         print(f"✅ Audio generated: {output_path}")
         return True
 
+    except FileNotFoundError:
+        print("❌ edge-tts not found. Install with: pip install edge-tts")
+        return False
+    except subprocess.CalledProcessError as e:
+        print(f"❌ TTS failed: {e.stderr}")
+        return False
     except Exception as e:
         print(f"❌ TTS failed: {e}")
         return False
@@ -106,7 +104,8 @@ def main():
     parser.add_argument("--video", type=Path, required=True, help="Input video file")
     parser.add_argument("--audio", type=Path, help="Audio file (if not using TTS)")
     parser.add_argument("--text", type=str, help="Text to synthesize (if not using audio file)")
-    parser.add_argument("--voice_reference", type=Path, help="Voice reference for cloning")
+    parser.add_argument("--voice", type=str, default="en-US-AriaNeural",
+                        help="Voice for edge-tts (default: en-US-AriaNeural)")
     parser.add_argument("--output", type=Path, required=True, help="Output video file")
 
     args = parser.parse_args()
@@ -132,7 +131,7 @@ def main():
         success = generate_audio_from_text(
             args.text,
             audio_path,
-            args.voice_reference
+            args.voice
         )
 
         if not success:
