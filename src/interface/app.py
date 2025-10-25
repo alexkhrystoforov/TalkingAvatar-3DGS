@@ -44,9 +44,33 @@ custom_css = """
 .feature-card {
     background: #f8f9fa;
     border-left: 4px solid #667eea;
-    padding: 1rem;
+    padding: 1.5rem;
     margin: 1rem 0;
-    border-radius: 5px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.feature-card h3 {
+    color: #667eea;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.feature-card p {
+    color: #555;
+    margin: 0.5rem 0;
+}
+
+.feature-card ul {
+    color: #333;
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+}
+
+.feature-card li {
+    margin: 0.3rem 0;
+    color: #555;
 }
 
 .tab-nav button {
